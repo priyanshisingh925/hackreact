@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { apiUrl } from '../apiBase.js'
 
 const css = `
 .analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -77,12 +78,12 @@ export default function Analytics() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/ai/tone-stats').then(r => r.json()),
-      fetch('/api/ai/language-stats').then(r => r.json()),
-      fetch('/api/ai/metrics').then(r => r.json()),
-      fetch('/api/accounts?limit=240').then(r => r.json()),
-      fetch('/api/ai/feature-importance').then(r => r.json()),
-      fetch('/api/ai/trend').then(r => r.json()),
+      fetch(apiUrl('/api/ai/tone-stats')).then(r => r.json()),
+      fetch(apiUrl('/api/ai/language-stats')).then(r => r.json()),
+      fetch(apiUrl('/api/ai/metrics')).then(r => r.json()),
+      fetch(apiUrl('/api/accounts?limit=240')).then(r => r.json()),
+      fetch(apiUrl('/api/ai/feature-importance')).then(r => r.json()),
+      fetch(apiUrl('/api/ai/trend')).then(r => r.json()),
     ]).then(([tone, lang, met, accs, fi, trend]) => {
       setToneStats(tone)
       setLangStats(lang)

@@ -1,6 +1,12 @@
-// Resolves to '' locally (Vite proxy handles /api/...)
-// Resolves to the Render backend URL in production when VITE_API_URL is set at build time.
-// eslint-disable-next-line no-undef
-const API_BASE = typeof __API_BASE__ !== 'undefined' ? __API_BASE__ : '';
+const envApiUrl = import.meta.env.VITE_API_URL || '';
+const productionFallback = import.meta.env.PROD ? 'https://hackreact.onrender.com' : '';
+
+const API_BASE = (envApiUrl || productionFallback).replace(/\/+$/, '');
+
+export function apiUrl(path) {
+  if (/^https?:\/\//i.test(path)) return path;
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${API_BASE}${normalizedPath}`;
+}
 
 export default API_BASE;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { apiUrl } from '../apiBase.js'
 
 const GRAPH_OPTIONS = {
   outreach: {
@@ -469,10 +470,10 @@ export default function Dashboard({ onNavigate }) {
     setError(null)
     try {
       const [metrics, trend, riskDist, accountData] = await Promise.all([
-        fetchJson('/api/ai/metrics'),
-        fetchJson('/api/ai/trend'),
-        fetchJson('/api/ai/risk-distribution'),
-        fetchJson('/api/accounts?status=DORMANT&sortBy=scoreDesc&limit=5'),
+        fetchJson(apiUrl('/api/ai/metrics')),
+        fetchJson(apiUrl('/api/ai/trend')),
+        fetchJson(apiUrl('/api/ai/risk-distribution')),
+        fetchJson(apiUrl('/api/accounts?status=DORMANT&sortBy=scoreDesc&limit=5')),
       ])
 
       setData({ metrics, trend, riskDist, topAccounts: accountData.accounts || [] })

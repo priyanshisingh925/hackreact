@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { apiUrl } from '../apiBase.js'
 
 const css = `
 .workforce-page {
@@ -329,7 +330,7 @@ export default function Workforce() {
   const [accounts, setAccounts] = useState([])
 
   useEffect(() => {
-    fetch('/api/accounts?status=DORMANT&sortBy=balanceDesc&limit=240')
+    fetch(apiUrl('/api/accounts?status=DORMANT&sortBy=balanceDesc&limit=240'))
       .then(r => r.json())
       .then(data => setAccounts(data.accounts || []))
       .catch(console.error)

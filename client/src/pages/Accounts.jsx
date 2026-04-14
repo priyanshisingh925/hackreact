@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
+import { apiUrl } from '../apiBase.js'
 
 const css = `
 .accounts-layout { display: grid; grid-template-columns: 1fr 380px; gap: 16px; height: calc(100vh - var(--topbar-h) - 56px); }
@@ -120,7 +121,7 @@ function DetailPanel({ account, onScore }) {
 
   useEffect(() => {
     if (account) {
-      fetch(`/api/ai/explain/${account.id}`, { method: 'POST' })
+      fetch(apiUrl(`/api/ai/explain/${account.id}`), { method: 'POST' })
         .then(r => r.json()).then(setExplanation).catch(() => {})
     }
   }, [account?.id])
@@ -137,7 +138,7 @@ function DetailPanel({ account, onScore }) {
   const handleScore = async () => {
     setScoring(true)
     try {
-      const r = await fetch(`/api/accounts/${account.id}/score`, { method: 'POST' })
+      const r = await fetch(apiUrl(`/api/accounts/${account.id}/score`), { method: 'POST' })
       const updated = await r.json()
       onScore(updated)
     } finally { setScoring(false) }
@@ -270,7 +271,7 @@ function CSVUpload({ onImported }) {
     const fd = new FormData()
     fd.append('file', file)
     try {
-      const r = await fetch('/api/import', { method: 'POST', body: fd })
+      const r = await fetch(apiUrl('/api/import'), { method: 'POST', body: fd })
       const data = await r.json()
       setResult(data)
       if (onImported) onImported()
@@ -322,7 +323,7 @@ export default function Accounts() {
     if (search) params.set('search', search)
     if (statusFilter) params.set('status', statusFilter)
     if (riskFilter) params.set('riskLevel', riskFilter)
-    fetch(`/api/accounts?${params}`)
+    fetch(apiUrl(`/api/accounts?${params}`))
       .then(r => r.json())
       .then(data => { setAccounts(data.accounts || []); setTotal(data.total || 0) })
       .catch(console.error)
@@ -336,7 +337,7 @@ export default function Accounts() {
   }
 
   const scoreAll = async () => {
-    await fetch('/api/accounts/score/all', { method: 'POST' })
+    await fetch(apiUrl('/api/accounts/score/all'), { method: 'POST' })
     loadAccounts()
   }
 
