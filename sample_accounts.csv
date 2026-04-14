@@ -1,0 +1,21 @@
+account_id,customer_name,age,state,branch,account_type,balance,dormancy_years,has_mobile,has_email,region_type,preferred_language
+IMP000001,Suresh Mehta,52,Gujarat,Ahmedabad - CG Road,Savings,285000,3.5,true,true,URBAN,English
+IMP000002,Lakshmi Devi,67,Tamil Nadu,Coimbatore - RS Puram,Savings,45000,6.2,false,false,RURAL,Tamil
+IMP000003,Rahul Sharma,29,Maharashtra,Mumbai - Andheri,Current,1250000,2.1,true,true,URBAN,English
+IMP000004,Padmavathi R,71,Telangana,Warangal - Hanamkonda,Savings,18500,9.8,false,false,RURAL,Telugu
+IMP000005,Amit Gupta,38,Uttar Pradesh,Lucknow - Hazratganj,Savings,92000,4.0,true,false,URBAN,Hindi
+IMP000006,Geetha Nair,58,Karnataka,Mysuru - Saraswathipuram,FD Linked,380000,5.5,true,true,URBAN,English
+IMP000007,Bijoy Das,44,West Bengal,Siliguri - Sevoke Road,Savings,32000,3.1,true,false,RURAL,Bengali
+IMP000008,Harsha Reddy,31,Telangana,Hyderabad - Banjara Hills,Current,750000,2.8,true,true,URBAN,English
+IMP000009,Savitri Bai,79,Rajasthan,Jodhpur - Sardarpura,Savings,8500,11.3,false,false,RURAL,Hindi
+IMP000010,Vinod Shetty,46,Karnataka,Bengaluru - Indiranagar,Savings,195000,3.7,true,true,URBAN,English
+IMP000011,Meenakshi S,55,Tamil Nadu,Chennai - T. Nagar,NRO,520000,4.4,true,false,URBAN,English
+IMP000012,Rajaram Patil,62,Maharashtra,Pune - Shivajinagar,Savings,67000,7.2,false,false,RURAL,Marathi
+IMP000013,Priya Joshi,27,Gujarat,Surat - Ring Road,Savings,28000,2.3,true,true,URBAN,English
+IMP000014,Gopal Krishna,73,West Bengal,Kolkata - Park Street,Savings,125000,10.1,false,false,RURAL,Bengali
+IMP000015,Naveen Kumar,35,Uttar Pradesh,Varanasi - Sigra,Current,445000,3.9,true,true,URBAN,Hindi
+IMP000016,Usha Devi,61,Maharashtra,Nagpur - Sitabuldi,Savings,22000,8.6,false,false,RURAL,Marathi
+IMP000017,Sanjay Patel,49,Gujarat,Vadodara - Alkapuri,Current,890000,2.6,true,true,URBAN,English
+IMP000018,Rekha Verma,56,Rajasthan,Jaipur - MI Road,Savings,41000,5.1,true,false,URBAN,Hindi
+IMP000019,Dinesh Rao,42,Karnataka,Hubballi - Deshpande Nagar,Savings,76000,4.8,true,false,RURAL,Kannada
+IMP000020,Anitha Pillai,33,Kerala,Kochi - MG Road,Savings,165000,2.9,true,true,URBAN,English
